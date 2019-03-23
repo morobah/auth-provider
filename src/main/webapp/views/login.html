@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.6.3/css/all.css}" />
+    <script th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/index.css}"/>
+</head>
+<body>
+    <!--<div class="container">
+        <div class="banner-content">
+            <img th:src="@{/static/banner.png}">
+        </div>
+        <div class="form-content">
+            <div class="tittle">
+                <h1>INICIAR SESSION</h1>
+                <h4>Bienvenido, ingrese sus credenciales</h4>
+            </div>
+            <div class="form-group">
+                <form th:action="@{/login}"   method="POST" id="login-form">
+                    <div class="input-group">
+                        <input type="text" id="username" class="form-control" placeholder="Usuario" name="username"> <br> <br>
+                    </div>
+                    <div class="input-group">
+                        <input id="password" type="password" class="form-control" placeholder="Contraseña" name="password">
+                    </div>
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+                    <div class="login-option">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Recordar</label>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#">Olvide mi contraseña</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="submit-button">
+                <button form="login-form" type="submit" class="btn">Ingresar</button>
+            </div>
+        </div>
+
+    </div>-->
+
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center" style="min-height:100vh; overflow: hidden;">
+        <div class="text-center font-weight-bold m-4">
+            <h4>SISTEMA RESTAURANTE</h4>
+        </div>
+
+        <div class="d-flex flex-column col-sm-12 col-md-6 bg-light p-2 mb-5 shadow rounded">
+
+            <div class="d-flex">
+                <div class="col-8">
+                    <h4>Ingreso</h4>
+                    <span class="text-danger" th:text="${error}"></span>
+                </div>
+                <h1 class="col-4 d-flex justify-content-end align-items-center"><i class="fa fa-lock" aria-hidden="true"></i></h1>
+            </div>
+            <form th:action="@{/login}"   method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" placeholder="Usuario" name="username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <div class="form-group d-flex justify-content-between">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+                    </div>
+                    <div class="text-center"><a href="#">Olvide mi Contraseña</a></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" name="submit" value="1">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
